@@ -1,9 +1,5 @@
 package stats
 
-import (
-	"encoding/json"
-)
-
 func Run(nums []int) int {
 	mapPairs := make(map[int][][]int)
 	for i := 3; i < len(nums); i++ {
@@ -62,12 +58,4 @@ func checkReverse(x, y []int) bool {
 	}
 
 	return true
-}
-
-func dump(i interface{}) string {
-	if i == nil {
-		return ""
-	}
-	bt, _ := json.Marshal(i)
-	return string(bt)
 }
