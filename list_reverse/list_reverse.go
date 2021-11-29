@@ -1,7 +1,9 @@
 package stats
 
 func Run(nums []int) int {
+	// make pair of pairs start from pair of 2 to pair of n-1
 	mapPairs := make(map[int][][]int)
+	// minimum reversed pair is 3
 	for i := 3; i < len(nums); i++ {
 		for j := 0; j < len(nums); j++ {
 			var pairs []int
@@ -19,6 +21,8 @@ func Run(nums []int) int {
 		}
 	}
 
+	// check each pairs, if there is a reversed pair
+	// use, the first reversed pair found
 	var reversedPair []int
 	for _, pairs := range mapPairs {
 		for i := 0; i < len(pairs); i++ {
@@ -32,6 +36,7 @@ func Run(nums []int) int {
 		}
 	}
 
+	// find the max
 	return max(reversedPair)
 }
 
